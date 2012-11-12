@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Util.DoubleKeyDictionary;
+using System.Collections;
 
 namespace Test.Util.DoubleKeyDictionary
 {
@@ -22,6 +23,33 @@ namespace Test.Util.DoubleKeyDictionary
             dict.Add(1, 4, 5);
         }
         #endregion
+
+        [TestMethod]
+        public void Enumerate_IntKeys_ToString_Returns_Key1Key2Value()
+        {
+            var dict = new DoubleKeyDictionary<string, string, int>();
+            dict.Add("a", "b", 1);
+
+            foreach (var item in dict)
+            {
+                Assert.AreEqual<string>("a - b - 1", item.ToString());
+            }
+        
+        }
+
+        [TestMethod]
+        public void IEnumerate_IntKeys_ToString_Returns_Key1Key2Value()
+        {
+            var dict = new DoubleKeyDictionary<string, string, int>();
+            dict.Add("a", "b", 1);
+
+            IEnumerable dictList = dict;
+
+            foreach (var item in dictList)
+            {
+                Assert.AreEqual<string>("a - b - 1", item.ToString());
+            }
+        }
 
         [TestMethod]
         public void Enumerate_IntKeys_Works()

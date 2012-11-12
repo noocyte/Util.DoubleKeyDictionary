@@ -7,6 +7,18 @@ namespace Test.Util.DoubleKeyDictionary
     public class DoubleKeyDictionary_Add
     {
         [TestMethod]
+        public void Index_IntKeys_Works()
+        {
+            var dict = new DoubleKeyDictionary<int, int, int>();
+            dict[1, 1] = 2;
+            dict[2, 2] = 4;
+
+            Assert.IsTrue(dict.ContainsKey(1, 1));
+            Assert.IsTrue(dict.ContainsKey(2, 2));
+        }
+
+
+        [TestMethod]
         public void Add_IntKeys_Works()
         {
             var dict = new DoubleKeyDictionary<int, int, int>();
@@ -53,7 +65,7 @@ namespace Test.Util.DoubleKeyDictionary
         public void Add_SameKeys_UpdatesValue()
         {
             var dict = new DoubleKeyDictionary<string, string, int>();
-            
+
             // add first value
             dict.Add("1", "1", 2);
             var val = dict["1", "1"];
