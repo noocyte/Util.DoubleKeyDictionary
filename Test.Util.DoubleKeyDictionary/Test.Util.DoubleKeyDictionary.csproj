@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DoubleKeyDictionary_Add.cs" />
+    <Compile Include="DoubleKeyDictionary_Enumerate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Util.DoubleKeyDictionary\Util.DoubleKeyDictionary\Util.DoubleKeyDictionary.csproj">

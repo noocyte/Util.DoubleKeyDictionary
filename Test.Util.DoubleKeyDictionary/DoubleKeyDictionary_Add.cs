@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Util.DoubleKeyDictionary;
 
 namespace Test.Util.DoubleKeyDictionary

@@ -3,21 +3,14 @@ using System.Collections.Generic;
 
 namespace Util.DoubleKeyDictionary
 {
-        public class DoubleKeyDictionary<K, T, V> :
-        IEnumerable<DoubleKeyPairValue<K, T, V>>,
-        IEquatable<DoubleKeyDictionary<K, T, V>>
+    public class DoubleKeyDictionary<K, T, V> : IEnumerable<DoubleKeyPairValue<K, T, V>>, IEquatable<DoubleKeyDictionary<K, T, V>>
     {
-
         public DoubleKeyDictionary()
         {
             this.OuterDictionary = new Dictionary<K, Dictionary<T, V>>();
         }
 
-        private Dictionary<K, Dictionary<T, V>> OuterDictionary
-        {
-            get;
-            set;
-        }
+        private Dictionary<K, Dictionary<T, V>> OuterDictionary { get; set; }
 
         public void Add(K key1, T key2, V value)
         {
