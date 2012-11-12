@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Util.DoubleKeyDictionary
@@ -83,7 +84,6 @@ namespace Util.DoubleKeyDictionary
 
         public bool Equals(DoubleKeyDictionary<K, T, V> other)
         {
-
             if (this.OuterDictionary.Keys.Count != other.OuterDictionary.Keys.Count)
                 return false;
 
@@ -100,18 +100,25 @@ namespace Util.DoubleKeyDictionary
                 // here we can be sure that the key is in both lists, 
                 // but we need to check the contents of the inner dictionary
                 Dictionary<T, V> otherInnerDictionary = other.OuterDictionary[innerItems.Key];
-                foreach (KeyValuePair<T, V> innerValue in innerItems.Value)
-                {
-                    if (!otherInnerDictionary.ContainsValue(innerValue.Value))
-                        isEqual = false;
-                    if (!otherInnerDictionary.ContainsKey(innerValue.Key))
-                        isEqual = false;
-                }
+                isEqual = CheckInnerDictionary(innerItems, otherInnerDictionary);
 
                 if (!isEqual)
                     break;
             }
 
+            return isEqual;
+        }
+
+        private static bool CheckInnerDictionary(KeyValuePair<K, Dictionary<T, V>> innerItems, Dictionary<T, V> otherInnerDictionary)
+        {
+            bool isEqual = true;
+            foreach (KeyValuePair<T, V> innerValue in innerItems.Value)
+            {
+                if (!otherInnerDictionary.ContainsValue(innerValue.Value))
+                    isEqual = false;
+                if (!otherInnerDictionary.ContainsKey(innerValue.Key))
+                    isEqual = false;
+            }
             return isEqual;
         }
 
