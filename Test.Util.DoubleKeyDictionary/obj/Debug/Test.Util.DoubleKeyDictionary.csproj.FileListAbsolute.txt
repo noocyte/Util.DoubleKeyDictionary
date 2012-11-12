@@ -1,0 +1,7 @@
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\bin\Debug\Test.Util.DoubleKeyDictionary.dll
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\bin\Debug\Test.Util.DoubleKeyDictionary.pdb
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\bin\Debug\Util.DoubleKeyDictionary.dll
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\bin\Debug\Util.DoubleKeyDictionary.pdb
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\obj\Debug\Test.Util.DoubleKeyDictionary.csprojResolveAssemblyReference.cache
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\obj\Debug\Test.Util.DoubleKeyDictionary.dll
+C:\source\Util.DoubleKeyDictionary\Test.Util.DoubleKeyDictionary\obj\Debug\Test.Util.DoubleKeyDictionary.pdb

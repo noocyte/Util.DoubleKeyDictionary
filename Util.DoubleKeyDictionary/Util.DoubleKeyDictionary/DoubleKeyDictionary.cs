@@ -7,7 +7,6 @@ namespace Util.DoubleKeyDictionary
         IEnumerable<DoubleKeyPairValue<K, T, V>>,
         IEquatable<DoubleKeyDictionary<K, T, V>>
     {
-        private Dictionary<T, V> m_innerDictionary;
 
         public DoubleKeyDictionary()
         {
@@ -24,18 +23,18 @@ namespace Util.DoubleKeyDictionary
         {
             if (OuterDictionary.ContainsKey(key1))
             {
-                if (m_innerDictionary.ContainsKey(key2))
+                if (OuterDictionary[key1].ContainsKey(key2))
                     OuterDictionary[key1][key2] = value;
                 else
                 {
-                    m_innerDictionary = OuterDictionary[key1];
+                    Dictionary<T, V> m_innerDictionary = OuterDictionary[key1];
                     m_innerDictionary.Add(key2, value);
                     OuterDictionary[key1] = m_innerDictionary;
                 }
             }
             else
             {
-                m_innerDictionary = new Dictionary<T, V>();
+                Dictionary<T, V> m_innerDictionary = new Dictionary<T, V>();
                 m_innerDictionary[key2] = value;
                 OuterDictionary.Add(key1, m_innerDictionary);
             }
@@ -51,6 +50,15 @@ namespace Util.DoubleKeyDictionary
             {
                 this.Add(index1, index2, value);
             }
+        }
+
+        public bool ContainsKey(K key1, T key2)
+        {
+            bool containsKey = false;
+            if (OuterDictionary.ContainsKey(key1))
+                if (OuterDictionary[key1].ContainsKey(key2))
+                    containsKey = true;
+            return containsKey;
         }
 
         #region IEnumerable<DoubleKeyPairValue<K,T,V>> Members
