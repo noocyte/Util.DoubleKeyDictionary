@@ -33,6 +33,18 @@ namespace Util.DoubleKeyDictionary
                 OuterDictionary.Add(key1, m_innerDictionary);
             }
         }
+        
+        public void Remove(K key1, T key2)
+        {
+            if (OuterDictionary.ContainsKey(key1)) {
+                if (OuterDictionary[key1].ContainsKey(key2)) {
+                    OuterDictionary[key1].Remove(key2);
+                    if (OuterDictionary[key1].Count == 0) {
+                        OuterDictionary.Remove(key1);
+                    }
+                }
+            }
+        }
 
         public V this[K index1, T index2]
         {
